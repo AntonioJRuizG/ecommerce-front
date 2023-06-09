@@ -1,8 +1,13 @@
 @import '../../styles/global.variables.scss';
 
 .section {
-	background-color: black;
+	background-color: rgb(53, 53, 53);
 	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
 
 	.sectionTitle {
 		font-size: 2rem;
