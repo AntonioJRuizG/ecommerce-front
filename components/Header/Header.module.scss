@@ -1,0 +1,22 @@
+@import '../../styles/global.variables.scss';
+
+.section {
+	background-color: black;
+	padding: 1rem;
+
+	.sectionTitle {
+		font-size: 2rem;
+		color: $primaryColor;
+		text-decoration: none;
+	}
+}
+
+.navMenu {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	.navLink {
+		color: $primaryColor;
+		text-decoration: none;
+	}
+}
