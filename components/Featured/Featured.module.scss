@@ -18,6 +18,20 @@
 	.sectionText {
 		color: $primaryColor;
 		font-size: 1rem;
+		text-overflow: ellipsis;
+		height: 250px;
+		margin-top: 1rem;
+
+		/* Required for text-overflow to do anything */
+		overflow: hidden;
+		line-height: 1.5rem;
+		max-height: 10.5rem;
+		-webkit-box-orient: vertical;
+		display: block;
+		display: -webkit-box;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+		-webkit-line-clamp: 7;
 	}
 
 	.sectionImg {
@@ -30,5 +44,10 @@
 		flex-direction: row;
 		gap: 1rem;
 		margin-top: 2rem;
+
+		svg {
+			height: 1rem;
+			min-width: 1rem;
+		}
 	}
 }

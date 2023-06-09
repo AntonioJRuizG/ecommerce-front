@@ -2,14 +2,19 @@
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import style from './Featured.module.scss'
 
-export default function Featured () {
+export default function Featured ({product}) {
   return (
 		<section className={style.section}>
 			<div>
-				<h1 className={style.sectionTitle}>Product</h1>
-				<p className={style.sectionText}>Description for the product</p>
+				<h1 className={style.sectionTitle}>{product.title}</h1>
+				<p className={style.sectionText}>{product.description}</p>
 				<div className={style.sectionBtns}>
-					<PrimaryBtn type='primaryBtn'>Read more</PrimaryBtn>
+					<PrimaryBtn
+						href={'/products/'+product.id}
+						type='primaryBtn'
+					>
+						Read more
+					</PrimaryBtn>
 					<PrimaryBtn type='secondaryBtn'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
