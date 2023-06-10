@@ -2,7 +2,7 @@
 
 .section {
 	background-color: $secondaryColor;
-	padding: 1rem;
+	padding: 1rem $leftRightPadding;
 	display: grid;
 	grid-template-columns: 0.8fr 1.2fr;
 	justify-content: space-between;
@@ -34,10 +34,15 @@
 		-webkit-line-clamp: 7;
 	}
 
-	.sectionImg {
-		max-width: 100%;
-		max-height: 100%;
+	.sectionImgContainer {
+		margin: auto;
+		text-align: center;
+		.sectionImg {
+			max-width: 100%;
+			max-height: 450px;
+		}
 	}
+
 	.sectionBtns {
 		display: flex;
 		justify-content: center;
