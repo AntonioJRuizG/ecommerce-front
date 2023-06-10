@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
-import CartIcon from '../icons/CartIcon';
 import style from './ProductBox.module.scss'
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 
 export default function ProductBox ({id, title, description, images, price}) {
-  const uri = '/product/'+id
+  const uri = '/product/'+id;
+	const {addProduct} = useContext(CartContext)
+	const handleAddToCartClick = () => {
+		addProduct(id)
+	}
   return (
 		<div className={style.container}>
 			<Link href={uri} className={style.imgContainer}>
@@ -23,7 +28,11 @@ export default function ProductBox ({id, title, description, images, price}) {
 				</Link>
 				<div className={style.shopContainer}>
 					<div className={style.price}>{price}€</div>
-					<PrimaryBtn type='tertiaryBtn' size='sm'>
+					<PrimaryBtn
+						type='tertiaryBtn'
+						size='sm'
+						onClick={handleAddToCartClick}
+					>
 						Add to cart
 					</PrimaryBtn>
 				</div>
