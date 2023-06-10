@@ -11,10 +11,12 @@
 	cursor: pointer;
 	padding: 0.2rem 0.5rem;
 	white-space: nowrap;
+	text-decoration: none;
 }
 
 .primaryBtn {
 	background-color: $primaryColor;
+	color: $secondaryColor;
 }
 
 .primaryBtn:hover {
@@ -22,10 +24,28 @@
 }
 
 .secondaryBtn {
-	background-color: rgb(150, 85, 255);
+	background-color: rgb(134, 59, 255);
 	color: white;
 }
 
 .secondaryBtn:hover {
-	background-color: rgb(156, 94, 255);
+	background-color: rgb(141, 73, 250);
+}
+
+.tertiaryBtn {
+	background-color: white;
+	color: rgb(134, 59, 255);
+	font-weight: bold;
+	border: 1px solid rgb(134, 59, 255);
+	border-radius: 0.15rem;
+	box-sizing: content-box;
+}
+
+.tertiaryBtn:hover {
+	background-color: rgb(251, 249, 255);
+}
+
+.sm {
+	padding: 0.1rem 0.4rem;
+	font-size: 0.825rem;
 }
