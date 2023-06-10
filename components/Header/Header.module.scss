@@ -3,7 +3,7 @@
 .section {
 	white-space: nowrap;
 	background-color: $secondaryColor;
-	padding: 1rem;
+	padding: 1rem $leftRightPadding;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
