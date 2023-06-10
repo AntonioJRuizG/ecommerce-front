@@ -1,0 +1,28 @@
+@import '../../styles/global.variables.scss';
+
+.section {
+	white-space: nowrap;
+	background-color: $secondaryColor;
+	padding: 1rem $leftRightPadding;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+
+	.sectionTitle {
+		font-size: 2rem;
+		color: $primaryColor;
+		text-decoration: none;
+	}
+}
+
+.navMenu {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	.navLink {
+		color: $primaryColor;
+		text-decoration: none;
+	}
+}
