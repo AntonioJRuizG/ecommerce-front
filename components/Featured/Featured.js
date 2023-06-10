@@ -1,9 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import { useContext } from 'react';
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import CartIcon from '../icons/CartIcon';
 import style from './Featured.module.scss'
+import { CartContext } from '@/context/CartContext';
 
 export default function Featured ({product}) {
+	const { addProduct } = useContext(CartContext);
+
+	const handleAddToCart = () => {
+		addProduct(product.id);
+	};
+
   return (
 		<section className={style.section}>
 			<div>
@@ -13,7 +21,7 @@ export default function Featured ({product}) {
 					<PrimaryBtn href={'/products/' + product.id} type='primaryBtn'>
 						Read more
 					</PrimaryBtn>
-					<PrimaryBtn type='secondaryBtn'>
+					<PrimaryBtn type='secondaryBtn' onClick={handleAddToCart}>
 						<CartIcon></CartIcon>
 						Add to cart
 					</PrimaryBtn>
