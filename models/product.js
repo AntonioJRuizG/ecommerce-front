@@ -7,6 +7,8 @@ const productSchema = new Schema({
 	category: {type: mongoose.Types.ObjectId, ref: 'Category'},
 	images: [{type: String}],
 	properties: {type: Object},
+},{
+	timestamps: true
 });
 
 productSchema.set('toJSON', {

@@ -1,0 +1,13 @@
+@import '../../styles/global.variables.scss';
+
+.section {
+	background-color: $secondaryColor;
+	padding: 1rem;
+
+	.sectionGrid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		font-size: 1rem;
+		color: $primaryColor;
+	}
+}
