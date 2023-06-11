@@ -12,7 +12,6 @@
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.2rem;
-		min-width: min-content;
 	}
 	.cartList {
 		display: flex;
@@ -20,5 +19,42 @@
 		gap: 0.5rem;
 		font-size: 0.85rem;
 		white-space: nowrap;
+	}
+
+	.orderInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 1rem;
+
+		.twoColumsInput {
+			display: flex;
+			justify-content: space-between;
+			gap: 0.5rem;
+
+			.inputCity {
+				width: 40%;
+			}
+
+			.inputPZS {
+				width: 60%;
+			}
+		}
+
+		input {
+			border: 1px solid rgb(145, 42, 214);
+			border-radius: 0.1rem;
+			padding: 0.2rem 0.5rem;
+			color: $secondaryColor;
+			font-size: 0.9rem;
+			background-color: white;
+		}
+
+		input:focus {
+			outline-color: rgb(145, 42, 214);
+			border-radius: 0.2rem;
+			outline-style: solid;
+			background-color: rgb(253, 249, 255);
+		}
 	}
 }
