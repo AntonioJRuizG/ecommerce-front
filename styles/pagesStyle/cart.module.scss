@@ -3,23 +3,22 @@
 .cartContainer {
 	background-color: $primaryColor;
 	padding: 1rem $leftRightPadding;
-	display: flex;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
 	gap: 2rem;
-	justify-content: space-between;
 	height: 100%;
 
 	.cartBox {
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.2rem;
+		min-width: min-content;
 	}
 	.cartList {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 		font-size: 0.85rem;
-	}
-
-	.orderInfo {
+		white-space: nowrap;
 	}
 }

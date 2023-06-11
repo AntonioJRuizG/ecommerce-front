@@ -4,6 +4,7 @@ import style from '../styles/pagesStyle/cart.module.scss'
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/context/CartContext";
 import axios from "axios";
+import Table from "@/components/Table/Table";
 
 export default function CartPage () {
   const { cartProducts } = useContext(CartContext);
@@ -23,9 +24,7 @@ export default function CartPage () {
 					<h2>Cart</h2>
 					<div className={style.cartList}>
 						{products.length > 0 ? (
-							products.map((product) => (
-								<div key={product.id}>{product.title}</div>
-							))
+							<Table products={products} cartProducts={cartProducts}></Table>
 						) : (
 							<div>Your cart is empty.</div>
 						)}
