@@ -14,6 +14,10 @@
 		border-radius: 0.2rem;
 	}
 	.cartList {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		font-size: 0.85rem;
 	}
 
 	.orderInfo {
