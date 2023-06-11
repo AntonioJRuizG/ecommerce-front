@@ -1,7 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+import { Fragment, useEffect } from 'react';
+import QuantitySelector from '../QuantitySelector/QuantitySelector';
 import style from './Table.module.scss'
 
-export default function Table({ products, cartProducts }) {
+export default function Table({
+	products,
+	cartProducts,
+	addProduct,
+	removeProduct,
+	totalPrice,
+}) {
 	return (
 		<table className={style.table}>
 			<thead>
@@ -12,9 +21,13 @@ export default function Table({ products, cartProducts }) {
 				</tr>
 			</thead>
 			<tbody>
-				{products.map((product) => (<>
-          <tr><td colspan='3'><div className={style.line}></div></td></tr>
-					<tr key={product.id}>
+				<tr>
+					<td colSpan='3'>
+						<div className={style.line}></div>
+					</td>
+				</tr>
+				{products.map((product) => (
+					<tr key={product.id + Math.floor(Math.random() * 1000)}>
 						<td>
 							<img
 								src={product.images[0]}
@@ -24,13 +37,31 @@ export default function Table({ products, cartProducts }) {
 							></img>
 							{product.title}
 						</td>
-						<td>{cartProducts.filter((id) => id === product.id).length}</td>
+						<td>
+							<QuantitySelector
+								cartProducts={cartProducts}
+								productId={product.id}
+								addProduct={addProduct}
+								removeProduct={removeProduct}
+							></QuantitySelector>
+						</td>
 						<td>
 							{product.price *
-								cartProducts.filter((id) => id === product.id).length} €
+								cartProducts.filter((id) => id === product.id).length}{' '}
+							€
 						</td>
-					</tr></>
+					</tr>
 				))}
+				<tr>
+					<td colSpan='3'>
+						<div className={style.line}></div>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>{totalPrice} €</td>
+				</tr>
 			</tbody>
 		</table>
 	);
