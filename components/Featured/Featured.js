@@ -18,10 +18,10 @@ export default function Featured ({product}) {
 				<h1 className={style.sectionTitle}>{product.title}</h1>
 				<p className={style.sectionText}>{product.description}</p>
 				<div className={style.sectionBtns}>
-					<PrimaryBtn href={'/products/' + product.id} type='primaryBtn'>
+					<PrimaryBtn href={'/products/' + product.id} btn='primaryBtn'>
 						Read more
 					</PrimaryBtn>
-					<PrimaryBtn type='secondaryBtn' onClick={handleAddToCart}>
+					<PrimaryBtn btn='secondaryBtn' onClick={handleAddToCart}>
 						<CartIcon></CartIcon>
 						Add to cart
 					</PrimaryBtn>

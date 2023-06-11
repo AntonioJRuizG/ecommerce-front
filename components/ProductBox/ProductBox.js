@@ -29,7 +29,7 @@ export default function ProductBox ({id, title, description, images, price}) {
 				<div className={style.shopContainer}>
 					<div className={style.price}>{price}€</div>
 					<PrimaryBtn
-						type='tertiaryBtn'
+						btn='tertiaryBtn'
 						size='sm'
 						onClick={handleAddToCartClick}
 					>
