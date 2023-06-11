@@ -35,9 +35,13 @@ export default function CartPage () {
 		});
 	}
 
-	const handleSubmit = (ev) =>{
-		ev.preventDefault();
+	const handleSubmit = async (ev) =>{
 		const formData = ev.currentTarget;
+		const response = await axios.post('/api/checkout', {
+			userInfo,
+			cartProducts,
+			products,
+		});
 	}
 
   return (
@@ -63,7 +67,11 @@ export default function CartPage () {
 				{products.length > 0 ? (
 					<section className={style.cartBox}>
 						<h2>Order Information</h2>
-						<form className={style.orderInfo} action="/api/checkout" onSubmit={handleSubmit}>
+						<form
+							className={style.orderInfo}
+							method="post"
+							action='/api/checkout'
+						>
 							<input
 								type='text'
 								name='name'
@@ -110,8 +118,12 @@ export default function CartPage () {
 								value={userInfo?.country || ''}
 								onChange={handleChange}
 							></input>
-							<input type="hidden" name='products' value={cartProducts.join(',')}></input>
-							<PrimaryBtn type='submit' btn='secondaryBtn'>
+							<input
+								type='hidden'
+								name='products'
+								value={cartProducts.join(',')}
+							></input>
+							<PrimaryBtn onClick={handleSubmit} btn='secondaryBtn'>
 								Continue to payment
 							</PrimaryBtn>
 						</form>
