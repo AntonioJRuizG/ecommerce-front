@@ -5,7 +5,6 @@ import { CartContext } from '@/context/CartContext';
 
 export default function Header() {
 	const{cartProducts} = useContext(CartContext);
-	console.log(cartProducts);
 	return (
 		<header className={style.section}>
 			<Link className={style.sectionTitle} href={'/'}>
