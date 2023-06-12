@@ -6,11 +6,15 @@ import { CartContext } from "@/context/CartContext";
 import axios from "axios";
 import Table from "@/components/Table/Table";
 import PrimaryBtn from "@/components/PrimaryBtn/PrimaryBtn";
+import ExclamationTriangle from "@/components/icons/ExclamationTriangle";
 
 export default function CartPage () {
-  const { cartProducts, addProduct, removeProduct, computeTotalPrice } =
+  const { cartProducts, addProduct, removeProduct } =
 		useContext(CartContext);
   const [products, setProducts] = useState([])
+	const [emailError, setEmailError] = useState(false);
+	const [paymentSuccess, setPaymentSuccess] = useState(false);
+
 
 	const userInitialData = {name: '', email:'', city: '', postalCode: '', street: '', country:''};
 	const [userInfo, setUserInfo] = useState(userInitialData);
@@ -35,13 +39,48 @@ export default function CartPage () {
 		});
 	}
 
-	const handleSubmit = async (ev) =>{
-		const formData = ev.currentTarget;
-		const response = await axios.post('/api/checkout', {
-			userInfo,
-			cartProducts,
-			products,
-		});
+	const goToPayment = async () => {
+		const response = await axios
+		.post('/api/checkout', {
+		userInfo,
+		cartProducts,
+		})
+		.catch( function(error) {
+			if(error){setEmailError(true)}
+		}
+		);
+
+		if (typeof window !== 'undefined' && response?.data.url) {
+			window.location = response.data.url;
+		}
+	};
+
+	useEffect(() => {
+		console.log(paymentSuccess);
+		if (typeof window === 'undefined') {
+			return;
+		}
+		if (window?.location.href.includes('success')) {
+			setPaymentSuccess(true);
+		}
+	}, []);
+
+	console.log(paymentSuccess)
+
+	
+
+	if (paymentSuccess) {
+		return (
+			<>
+				<Header />
+				<article className={style.cartContainer}>
+					<section className={style.cartBox}>
+						<h2>Thanks for your order!</h2>
+						<div>We will email you when your order will be sent.</div>
+					</section>
+				</article>
+			</>
+		);
 	}
 
   return (
@@ -67,11 +106,7 @@ export default function CartPage () {
 				{products.length > 0 ? (
 					<section className={style.cartBox}>
 						<h2>Order Information</h2>
-						<form
-							className={style.orderInfo}
-							method="post"
-							action='/api/checkout'
-						>
+						<div className={style.orderInfo}>
 							<input
 								type='text'
 								name='name'
@@ -86,6 +121,11 @@ export default function CartPage () {
 								value={userInfo?.email || ''}
 								onChange={handleChange}
 							></input>
+							{
+								emailError ? 
+								<div className={style.errorTextBox}><ExclamationTriangle></ExclamationTriangle> <p>Email address must be a valid email</p></div> 
+								: null
+							}
 							<div className={style.twoColumsInput}>
 								<input
 									className={style.inputCity}
@@ -118,15 +158,10 @@ export default function CartPage () {
 								value={userInfo?.country || ''}
 								onChange={handleChange}
 							></input>
-							<input
-								type='hidden'
-								name='products'
-								value={cartProducts.join(',')}
-							></input>
-							<PrimaryBtn onClick={handleSubmit} btn='secondaryBtn'>
+							<PrimaryBtn onClick={goToPayment} btn='secondaryBtn'>
 								Continue to payment
 							</PrimaryBtn>
-						</form>
+						</div>
 					</section>
 				) : null}
 			</article>

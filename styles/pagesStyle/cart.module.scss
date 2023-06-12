@@ -57,4 +57,19 @@
 			background-color: rgb(253, 249, 255);
 		}
 	}
+
+	.errorTextBox {
+		display: flex;
+		gap: 0.5rem;
+		color: rgb(196, 2, 2);
+		font-size: 0.8rem;
+		font-weight: bold;
+		background-color: rgb(253, 234, 234);
+		border-radius: 0.1rem;
+		padding: 0.2rem 0.5rem;
+
+		svg {
+			height: 1.2rem;
+		}
+	}
 }
