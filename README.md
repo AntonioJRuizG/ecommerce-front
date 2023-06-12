@@ -1,38 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# e-Commerce Store 🛒 - Front site
+
+Electronic products e-Commerce 🎧📱💻.
+
+This is the web interface for users to interact with the e-Commerce platform.
+
+The other part of the project is the [administrative web](https://github.com/AntonioJRuizG/ecommerce-admin-preview) for managing the e-Commerce store.
+
+## Description
+
+Take a look at the stock of electronic products we offer to you. Stay informed about the latest product arrivals and the featured product with a special offer.
+
+Add your favorites to your cart and proceed to payment, or save your cart list for later. Save your order data for a quicker experience on your next shopping session.
+
+Enjoy a smooth user experience on this website by receiving user feedback after every action you take.
+
+Use the app on any device; the responsive design adapts to every screen size.
+
+## Features
+
+### Featured product
+
+- A product showcased on the home page, which can be set by the e-Commerce administrator.
+
+### Last products
+
+- A list of the most recent products in stock, displayed on the home page.
+
+### All products
+
+- A comprehensive list of all the products in stock, which updates after a user makes a purchase.
+
+### Categories
+
+- Filter the product list by category, color, size, type, etc.
+
+### Cart
+
+- Add products to your cart. Access a list of your cart, featuring a small image, title, quantity, and price for each product.
+- Adjust the quantity of each product or remove them.
+- View the total price of your shopping.
+
+#### Order
+
+- Complete the order information form and proceed to the checkout page to view your shopping results.
+
+## Tech
+
+- ReactJS
+- Next.js
+- Sass modules
+- Stripe
+- MongoDB
+- Firebase
+- Responsive
 
 ## Getting Started
 
-First, run the development server:
+First, install
+
+```bash
+npm i
+```
+
+second, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/cart](http://localhost:3000/api/cart) and [http://localhost:3000/api/checkout](http://localhost:3000/api/checkout).
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
