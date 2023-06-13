@@ -6,6 +6,7 @@ import PrimaryBtn from "../PrimaryBtn/PrimaryBtn";
 
 import style from './ProductDetail.module.scss'
 import CartIcon from "../icons/CartIcon";
+import ProductImages from "../ProductImages/ProductImages";
 
 export default function ProductDetail ({id, title, description, images, price}){
 const {addProduct} = useContext(CartContext)
@@ -14,15 +15,7 @@ const {addProduct} = useContext(CartContext)
 	}
   return (
 		<div className={style.container}>
-			<div className={style.imgContainer}>
-				<img
-					className={style.img}
-					width={300}
-					height={300}
-					src={images[0]}
-					alt={title}
-				></img>
-			</div>
+			<ProductImages images={images} title={title}></ProductImages>
 			<div className={style.infoContainer}>
 				<div className={style.title}>{title}</div>
 				<div className={style.description}>{description}</div>
@@ -33,7 +26,7 @@ const {addProduct} = useContext(CartContext)
 						size='sm'
 						onClick={handleAddToCartClick}
 					>
-					<CartIcon></CartIcon>	Add to cart
+						<CartIcon></CartIcon> Add to cart
 					</PrimaryBtn>
 				</div>
 			</div>
