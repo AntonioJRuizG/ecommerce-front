@@ -1,0 +1,70 @@
+@import '../../styles/global.variables.scss';
+
+.container {
+	color: $secondaryColor;
+	padding: 1rem $leftRightPadding;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	background-color: $primaryColor;
+
+	.imgContainer {
+		background-color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 20rem;
+		width: 20rem;
+		border-radius: 0.1rem;
+	}
+	.img {
+		padding: 1rem;
+		max-height: fit-content;
+		max-width: fit-content;
+	}
+
+	.infoContainer {
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+
+		.title {
+			text-align: left;
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-top: 0.5rem;
+			color: black;
+			white-space: nowrap;
+			text-decoration: none;
+		}
+
+		.description {
+			text-align: left;
+			font-size: 0.825rem;
+			margin-top: 0.5rem;
+			color: black;
+			text-decoration: none;
+			height: 100%;
+		}
+
+		.shopContainer {
+			margin-top: 0.1rem;
+			display: flex;
+			justify-content: flex-end;
+			gap: 0.5rem;
+
+			.price {
+				font-weight: bold;
+			}
+
+			svg {
+				height: 1rem;
+				min-width: 1rem;
+			}
+		}
+		.cartBtn {
+			font-size: 2rem;
+			height: 1rem;
+		}
+	}
+}
