@@ -2,7 +2,7 @@
 
 .section {
 	background-color: whitesmoke;
-	padding: 2rem $leftRightPadding;
+	padding: 2rem $leftRightPaddingMobile;
 
 	.sectionTitle {
 		color: $secondaryColor;
@@ -15,7 +15,7 @@
 		gap: 1rem;
 	}
 
-	@media screen and (max-width: 600px) {
-		padding: 2rem $leftRightPaddingMobile;
+	@media screen and (min-width: 600px) {
+		padding: 2rem $leftRightPadding;
 	}
 }

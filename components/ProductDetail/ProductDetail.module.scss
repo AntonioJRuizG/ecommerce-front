@@ -2,9 +2,9 @@
 
 .container {
 	color: $secondaryColor;
-	padding: 2rem $leftRightPadding;
+	padding: 2rem $leftRightPaddingMobile;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: 2rem;
 	background-color: $primaryColor;
 
@@ -39,7 +39,7 @@
 		.shopContainer {
 			margin-top: 1rem;
 			display: flex;
-			justify-content: flex-end;
+			justify-content: center;
 			gap: 1rem;
 
 			.price {
@@ -52,8 +52,8 @@
 				min-width: 1rem;
 			}
 
-			@media screen and (max-width: 600px) {
-				justify-content: center;
+			@media screen and (min-width: 600px) {
+				justify-content: flex-end;
 			}
 		}
 		.cartBtn {
@@ -62,8 +62,8 @@
 		}
 	}
 
-	@media screen and (max-width: 600px) {
-		padding: 2rem $leftRightPaddingMobile;
-		flex-direction: column;
+	@media screen and (min-width: 600px) {
+		padding: 2rem $leftRightPadding;
+		flex-direction: row;
 	}
 }

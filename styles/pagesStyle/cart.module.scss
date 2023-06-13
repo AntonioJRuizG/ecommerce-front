@@ -2,20 +2,20 @@
 
 .cartContainer {
 	background-color: $primaryColor;
-	padding: 2rem $leftRightPadding;
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 2rem;
+	padding: 2rem $leftRightPaddingMobile;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	height: 100%;
 
-	@media screen and (max-width: 600px) {
-		padding: 2rem $leftRightPaddingMobile;
+	@media screen and (min-width: 600px) {
+		padding: 2rem $leftRightPadding;
 	}
 
-	@media screen and (max-width: 800px) {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+	@media screen and (min-width: 800px) {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
 	}
 
 	.cartBox {
