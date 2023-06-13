@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 import {mongooseConnect} from '@/lib/mongoose';
 import {ProductOrder} from '@/models/order';
-const stripe = require('stripe')(process.env.STRIPE_SK);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 import {buffer} from 'micro';
 
 const endpointSecret =
