@@ -1,0 +1,19 @@
+@import '../../styles/global.variables.scss';
+
+.table {
+	width: 100%;
+	img {
+		max-width: 100px;
+		max-height: 100px;
+	}
+	th {
+		text-align: left;
+	}
+	td {
+		padding: 0.8rem 0.8rem 0.8rem 0;
+	}
+	.line {
+		width: 100%;
+		border-top: 1px solid $secondaryColor;
+	}
+}

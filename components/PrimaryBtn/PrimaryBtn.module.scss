@@ -20,7 +20,7 @@
 }
 
 .primaryBtn:hover {
-	background-color: white;
+	background-color: rgb(247, 247, 247);
 }
 
 .secondaryBtn {
@@ -48,4 +48,9 @@
 .sm {
 	padding: 0.1rem 0.4rem;
 	font-size: 0.825rem;
+}
+
+.square {
+	width: 1.8rem;
+	height: 1.8rem;
 }

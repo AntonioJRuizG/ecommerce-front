@@ -1,0 +1,75 @@
+@import '../global.variables.scss';
+
+.cartContainer {
+	background-color: $primaryColor;
+	padding: 1rem $leftRightPadding;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem;
+	height: 100%;
+
+	.cartBox {
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.2rem;
+	}
+	.cartList {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		font-size: 0.85rem;
+		white-space: nowrap;
+	}
+
+	.orderInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 1rem;
+
+		.twoColumsInput {
+			display: flex;
+			justify-content: space-between;
+			gap: 0.5rem;
+
+			.inputCity {
+				width: 40%;
+			}
+
+			.inputPZS {
+				width: 60%;
+			}
+		}
+
+		input {
+			border: 1px solid rgb(145, 42, 214);
+			border-radius: 0.1rem;
+			padding: 0.2rem 0.5rem;
+			color: $secondaryColor;
+			font-size: 0.9rem;
+			background-color: white;
+		}
+
+		input:focus {
+			outline-color: rgb(145, 42, 214);
+			border-radius: 0.2rem;
+			outline-style: solid;
+			background-color: rgb(253, 249, 255);
+		}
+	}
+
+	.errorTextBox {
+		display: flex;
+		gap: 0.5rem;
+		color: rgb(196, 2, 2);
+		font-size: 0.8rem;
+		font-weight: bold;
+		background-color: rgb(253, 234, 234);
+		border-radius: 0.1rem;
+		padding: 0.2rem 0.5rem;
+
+		svg {
+			height: 1.2rem;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@import '../../styles/global.variables.scss';
+
+.quantitySelector {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: baseline;
+	gap: 0.7rem;
+}

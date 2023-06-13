@@ -1,19 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
+import { useContext } from 'react';
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import CartIcon from '../icons/CartIcon';
 import style from './Featured.module.scss'
+import { CartContext } from '@/context/CartContext';
 
 export default function Featured ({product}) {
+	const { addProduct } = useContext(CartContext);
+
+	const handleAddToCart = () => {
+		addProduct(product.id);
+	};
+
   return (
 		<section className={style.section}>
 			<div>
 				<h1 className={style.sectionTitle}>{product.title}</h1>
 				<p className={style.sectionText}>{product.description}</p>
 				<div className={style.sectionBtns}>
-					<PrimaryBtn href={'/products/' + product.id} type='primaryBtn'>
+					<PrimaryBtn href={'/products/' + product.id} btn='primaryBtn'>
 						Read more
 					</PrimaryBtn>
-					<PrimaryBtn type='secondaryBtn'>
+					<PrimaryBtn btn='secondaryBtn' onClick={handleAddToCart}>
 						<CartIcon></CartIcon>
 						Add to cart
 					</PrimaryBtn>

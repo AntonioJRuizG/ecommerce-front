@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import style from './Header.module.scss'
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 
 export default function Header() {
+	const{cartProducts} = useContext(CartContext);
 	return (
 		<header className={style.section}>
 			<Link className={style.sectionTitle} href={'/'}>
@@ -21,7 +24,7 @@ export default function Header() {
 					Account
 				</Link>
 				<Link className={style.navLink} href={'/cart'}>
-					Cart (0)
+					Cart ({cartProducts.length})
 				</Link>
 			</nav>
 		</header>
