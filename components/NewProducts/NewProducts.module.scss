@@ -4,6 +4,10 @@
 	background-color: whitesmoke;
 	padding: 1rem $leftRightPadding;
 
+	@media screen and (max-width: 600px) {
+		padding: 1rem $leftRightPaddingMobile;
+	}
+
 	.sectionTitle {
 		color: $secondaryColor;
 	}

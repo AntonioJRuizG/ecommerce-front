@@ -2,7 +2,7 @@
 
 .section {
 	background-color: whitesmoke;
-	padding: 1rem $leftRightPadding;
+	padding: 2rem $leftRightPadding;
 
 	.sectionTitle {
 		color: $secondaryColor;
@@ -13,5 +13,9 @@
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 		padding-top: 1.2rem;
 		gap: 1rem;
+	}
+
+	@media screen and (max-width: 600px) {
+		padding: 2rem $leftRightPaddingMobile;
 	}
 }
