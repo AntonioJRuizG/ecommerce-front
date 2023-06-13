@@ -9,7 +9,7 @@ import PrimaryBtn from "@/components/PrimaryBtn/PrimaryBtn";
 import ExclamationTriangle from "@/components/icons/ExclamationTriangle";
 
 export default function CartPage () {
-  const { cartProducts, addProduct, removeProduct } =
+  const { cartProducts, addProduct, removeProduct, clearCart } =
 		useContext(CartContext);
   const [products, setProducts] = useState([])
 	const [emailError, setEmailError] = useState(false);
@@ -56,18 +56,14 @@ export default function CartPage () {
 	};
 
 	useEffect(() => {
-		console.log(paymentSuccess);
 		if (typeof window === 'undefined') {
 			return;
 		}
 		if (window?.location.href.includes('success')) {
 			setPaymentSuccess(true);
+			clearCart()
 		}
 	}, []);
-
-	console.log(paymentSuccess)
-
-	
 
 	if (paymentSuccess) {
 		return (
