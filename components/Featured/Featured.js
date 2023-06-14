@@ -23,7 +23,7 @@ export default function Featured ({product}) {
 					</PrimaryBtn>
 					<PrimaryBtn btn='secondaryBtn' onClick={handleAddToCart}>
 						<CartIcon></CartIcon>
-						Add to cart
+						<span>Add to cart</span>
 					</PrimaryBtn>
 				</div>
 			</div>
@@ -32,6 +32,8 @@ export default function Featured ({product}) {
 					className={style.sectionImg}
 					src='https://firebasestorage.googleapis.com/v0/b/next-ecommerce-fdf78.appspot.com/o/products%2FIphone%2014-3306?alt=media&token=c5bb9734-d6c5-40b3-a5ad-715693cae0e1'
 					alt='Featured product'
+					width={300}
+					height={300}
 				></img>
 			</div>
 		</section>

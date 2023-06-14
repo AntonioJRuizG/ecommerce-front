@@ -1,0 +1,21 @@
+@import '../global.variables.scss';
+
+.section {
+	background-color: whitesmoke;
+	padding: 2rem $leftRightPaddingMobile;
+
+	.sectionTitle {
+		color: $secondaryColor;
+	}
+
+	.sectionGrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		padding-top: 1.2rem;
+		gap: 1rem;
+	}
+
+	@media screen and (min-width: 700px) {
+		padding: 2rem $leftRightPadding;
+	}
+}

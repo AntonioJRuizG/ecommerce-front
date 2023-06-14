@@ -1,0 +1,69 @@
+@import '../../styles/global.variables.scss';
+
+.container {
+	color: $secondaryColor;
+	padding: 2rem $leftRightPaddingMobile;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	background-color: $primaryColor;
+
+	.imgContainer {
+		max-width: 100%;
+		height: auto;
+		border-radius: 0.1rem;
+	}
+
+	.infoContainer {
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+
+		.title {
+			text-align: left;
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-top: 0.5rem;
+			color: black;
+			text-decoration: none;
+		}
+
+		.description {
+			text-align: left;
+			font-size: 0.825rem;
+			margin-top: 0.5rem;
+			color: black;
+			text-decoration: none;
+		}
+
+		.shopContainer {
+			margin-top: 1rem;
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+
+			.price {
+				font-size: 1.4rem;
+				font-weight: bold;
+			}
+
+			svg {
+				height: 1rem;
+				min-width: 1rem;
+			}
+
+			@media screen and (min-width: 700px) {
+				justify-content: flex-end;
+			}
+		}
+		.cartBtn {
+			font-size: 2rem;
+			height: 1rem;
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		padding: 2rem $leftRightPadding;
+		flex-direction: row;
+	}
+}

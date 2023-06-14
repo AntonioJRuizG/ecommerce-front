@@ -7,6 +7,7 @@ import axios from "axios";
 import Table from "@/components/Table/Table";
 import PrimaryBtn from "@/components/PrimaryBtn/PrimaryBtn";
 import ExclamationTriangle from "@/components/icons/ExclamationTriangle";
+import Link from "next/link";
 
 export default function CartPage () {
   const { cartProducts, addProduct, removeProduct, clearCart } =
@@ -95,7 +96,12 @@ export default function CartPage () {
 								totalPrice={totalPrice}
 							></Table>
 						) : (
-							<div>Your cart is empty.</div>
+							<div className={style.emptyCartList}>
+								<p>There are currently no items in your basket.</p>
+								<PrimaryBtn href={'/products'} btn='secondaryBtn'>
+									Keep shopping
+								</PrimaryBtn>
+							</div>
 						)}
 					</div>
 				</section>
@@ -117,11 +123,12 @@ export default function CartPage () {
 								value={userInfo?.email || ''}
 								onChange={handleChange}
 							></input>
-							{
-								emailError ? 
-								<div className={style.errorTextBox}><ExclamationTriangle></ExclamationTriangle> <p>Email address must be a valid email</p></div> 
-								: null
-							}
+							{emailError ? (
+								<div className={style.errorTextBox}>
+									<ExclamationTriangle></ExclamationTriangle>{' '}
+									<p>Email address must be a valid email</p>
+								</div>
+							) : null}
 							<div className={style.twoColumsInput}>
 								<input
 									className={style.inputCity}

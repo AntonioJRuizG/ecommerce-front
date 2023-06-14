@@ -1,3 +1,5 @@
+@import './global.variables.scss';
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -20,7 +22,6 @@
 */
 html,
 body {
-	height: 100%;
 	overflow-x: hidden;
 }
 
@@ -32,6 +33,9 @@ body {
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
+	min-height: 100vh;
+	margin: auto;
+	background-color: $primaryColor;
 }
 
 /*

@@ -2,23 +2,33 @@
 
 .cartContainer {
 	background-color: $primaryColor;
-	padding: 1rem $leftRightPadding;
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 2rem;
+	padding: 2rem $leftRightPaddingMobile;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	height: 100%;
+
+	@media screen and (min-width: 700px) {
+		padding: 2rem $leftRightPadding;
+	}
+
+	@media screen and (min-width: 800px) {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
+	}
 
 	.cartBox {
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.2rem;
+		min-width: 150px;
 	}
 	.cartList {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 		font-size: 0.85rem;
-		white-space: nowrap;
 	}
 
 	.orderInfo {
@@ -71,5 +81,11 @@
 		svg {
 			height: 1.2rem;
 		}
+	}
+
+	.emptyCartList {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 }
