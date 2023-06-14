@@ -21,17 +21,20 @@ export default function Nav ({cartProducts}) {
 				<Link className={style.navLink} href={'/products'}>
 					All products
 				</Link>
-				<Link className={style.navLink} href={'/categories'}>
-					Categories
-				</Link>
-				<Link className={style.navLink} href={'/account'}>
-					Account
-				</Link>
+				{/* TEMP */}
+				<div className={style.navLink}>Categories</div>
+				<div className={style.navLink}>Account</div>
 				<Link
 					className={style.navLink + ' ' + style.cartLinkSimple}
 					href={'/cart'}
 				>
 					Cart <span>({cartProducts.length})</span>
+				</Link>
+				<Link
+					className={style.cartLinkAdv + ' ' + style.cartLinkMobile}
+					href={'/cart'}
+				>
+					<ShoppingBag></ShoppingBag> <span>{cartProducts.length}</span>
 				</Link>
 			</nav>
 			<nav className={style.navSmallScreen}>
@@ -40,10 +43,10 @@ export default function Nav ({cartProducts}) {
 					<span></span>
 					<span></span>
 				</button>
+				<Link className={style.cartLinkAdv} href={'/cart'}>
+					<ShoppingBag></ShoppingBag> <span>{cartProducts.length}</span>
+				</Link>
 			</nav>
-			<Link className={style.cartLinkAdv} href={'/cart'}>
-				<ShoppingBag></ShoppingBag> <span>{cartProducts.length}</span>
-			</Link>
 		</>
 	);
 }

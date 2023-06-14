@@ -111,13 +111,22 @@
 	}
 }
 
+.cartLinkMobile {
+	display: none;
+}
+
 @media screen and (min-width: 800px) {
 	.navSmallScreen {
 		display: none;
 	}
 
+	.cartLinkMobile {
+		display: flex;
+	}
+
 	.navMenu {
 		flex-direction: row;
+		justify-content: flex-end;
 		position: inherit;
 		transition: none;
 		transform: none;
