@@ -23,7 +23,7 @@ export default function Featured ({product}) {
 					</PrimaryBtn>
 					<PrimaryBtn btn='secondaryBtn' onClick={handleAddToCart}>
 						<CartIcon></CartIcon>
-						Add to cart
+						<span>Add to cart</span>
 					</PrimaryBtn>
 				</div>
 			</div>

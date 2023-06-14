@@ -2,21 +2,28 @@
 
 .section {
 	background-color: $secondaryColor;
-	padding: 1rem $leftRightPaddingMobile;
+	padding: 2rem $leftRightPaddingMobile;
 	display: grid;
-	grid-template-columns: 0.8fr 1.2fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat() re;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
 
-	@media screen and (min-width: 600px) {
+	@media screen and (min-width: 700px) {
 		padding: 1rem $leftRightPadding;
+		grid-template-columns: 0.8fr 1.2fr;
 	}
 
 	.sectionTitle {
 		font-size: 2.2rem;
 		color: $primaryColor;
 		text-decoration: none;
+		text-align: center;
+
+		@media screen and (min-width: 700px) {
+			text-align: left;
+		}
 	}
 
 	.sectionText {
@@ -39,12 +46,18 @@
 	}
 
 	.sectionImgContainer {
+		grid-row: 1;
+
 		margin: auto;
 		text-align: center;
 		.sectionImg {
-			min-width: 290px;
+			min-width: 230px;
 			max-width: 100%;
-			max-height: 450px;
+			height: auto;
+		}
+
+		@media screen and (min-width: 700px) {
+			grid-column: 2;
 		}
 	}
 
@@ -58,6 +71,40 @@
 		svg {
 			height: 1rem;
 			min-width: 1rem;
+		}
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.section {
+		padding: 1rem $leftRightPadding;
+		grid-template-columns: 0.8fr 1.2fr;
+
+		.sectionTitle {
+			text-align: left;
+		}
+
+		.sectionText {
+			color: $primaryColor;
+			font-size: 1rem;
+			text-overflow: ellipsis;
+			height: 250px;
+			margin-top: 1rem;
+
+			/* Required for text-overflow to do anything */
+			overflow: hidden;
+			line-height: 1.5rem;
+			max-height: 10.5rem;
+			-webkit-box-orient: vertical;
+			display: block;
+			display: -webkit-box;
+			overflow: hidden !important;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 7;
+		}
+
+		.sectionImgContainer {
+			grid-column: 2;
 		}
 	}
 }

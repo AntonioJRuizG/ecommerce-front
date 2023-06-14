@@ -4,18 +4,30 @@
 	background-color: whitesmoke;
 	padding: 1rem $leftRightPaddingMobile;
 
-	@media screen and (min-width: 600px) {
+	@media screen and (min-width: 700px) {
 		padding: 1rem $leftRightPadding;
 	}
 
 	.sectionTitle {
 		color: $secondaryColor;
+		word-break: break-word;
+		span {
+			white-space: nowrap;
+		}
 	}
 
 	.sectionGrid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 		padding-top: 1.2rem;
 		gap: 1rem;
+
+		@media screen and (min-width: 550px) and (max-width: 700px) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@media screen and (min-width: 650px) and (max-width: 850px) {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 }
