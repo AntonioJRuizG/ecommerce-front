@@ -1,5 +1,6 @@
 import Link from "next/link";
 import style from './Nav.module.scss'
+import ShoppingBag from "../icons/ShoppingBag";
 export default function Nav ({cartProducts}) {
   return (
 		<nav className={style.navMenu}>
@@ -15,8 +16,8 @@ export default function Nav ({cartProducts}) {
 			<Link className={style.navLink} href={'/account'}>
 				Account
 			</Link>
-			<Link className={style.navLink} href={'/cart'}>
-				Cart ({cartProducts.length})
+			<Link className={style.navLink + ' ' + style.cartLink} href={'/cart'}>
+				<ShoppingBag></ShoppingBag> <span>{cartProducts.length}</span>
 			</Link>
 		</nav>
 	);
