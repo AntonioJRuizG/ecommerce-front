@@ -4,19 +4,22 @@ import { Product } from "@/models/product";
 import ProductBox from "@/components/ProductBox/ProductBox";
 
 import style from '../styles/pagesStyle/products.module.scss';
+import { LoadingSpin } from "@/components/SpinLoader/SpinLoader";
 
 export default function AllProducts ({products}) {
   return (
 		<>
 			<Header></Header>
 			<section className={style.section}>
-				<h2>All products</h2>
+				<h2 className={style.sectionTitle}>All products</h2>
 				<div className={style.sectionGrid}>
-					{products?.length > 0
-						? products.map((product) => (
-								<ProductBox key={product.id} {...product}></ProductBox>
-						  ))
-						: null}
+					{products?.length > 0 ? (
+						products.map((product) => (
+							<ProductBox key={product.id} {...product}></ProductBox>
+						))
+					) : (
+						<LoadingSpin></LoadingSpin>
+					)}
 				</div>
 			</section>
 		</>
