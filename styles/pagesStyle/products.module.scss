@@ -6,6 +6,7 @@
 
 	.sectionTitle {
 		color: $secondaryColor;
+		white-space: nowrap;
 	}
 
 	.sectionGrid {
@@ -17,5 +18,12 @@
 
 	@media screen and (min-width: 700px) {
 		padding: 2rem $leftRightPadding;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.section {
+		padding-left: $leftRightPaddingBigScreen;
+		padding-right: $leftRightPaddingBigScreen;
 	}
 }

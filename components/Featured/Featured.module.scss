@@ -107,4 +107,11 @@
 			grid-column: 2;
 		}
 	}
+
+	@media screen and (min-width: 1500px) {
+		.section {
+			padding-left: $leftRightPaddingBigScreen;
+			padding-right: $leftRightPaddingBigScreen;
+		}
+	}
 }
