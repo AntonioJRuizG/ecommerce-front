@@ -1,60 +1,30 @@
 @import '../global.variables.scss';
 
-.cartContainer {
+.section {
 	background-color: $primaryColor;
 	padding: 2rem $leftRightPaddingMobile;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	justify-content: center;
+	gap: 2rem;
 	height: 100%;
 
-	@media screen and (min-width: 700px) {
-		padding: 2rem $leftRightPadding;
-	}
-
-	@media screen and (min-width: 800px) {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 2rem;
-	}
-
-	.cartBox {
+	.sectionForm,
+	.sectionNewUser {
 		background-color: white;
 		padding: 1rem;
-		border-radius: 0.2rem;
-		min-width: 150px;
-
-		.sectionTitle {
-			color: $secondaryColor;
-			white-space: nowrap;
-		}
-	}
-	.cartList {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		font-size: 0.85rem;
+		min-width: 200px;
 	}
 
-	.orderInfo {
+	.sectionTitle {
+		color: $secondaryColor;
+		white-space: nowrap;
+	}
+
+	.registerForm {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
 		margin-top: 1rem;
-
-		.twoColumsInput {
-			display: flex;
-			justify-content: space-between;
-			gap: 0.5rem;
-
-			.inputCity {
-				width: 40%;
-			}
-
-			.inputPZS {
-				width: 60%;
-			}
-		}
 
 		input {
 			border: 1px solid rgb(145, 42, 214);
@@ -63,6 +33,7 @@
 			color: $secondaryColor;
 			font-size: 0.9rem;
 			background-color: white;
+			margin-bottom: 1rem;
 		}
 
 		input:focus {
@@ -70,6 +41,15 @@
 			border-radius: 0.2rem;
 			outline-style: solid;
 			background-color: rgb(253, 249, 255);
+		}
+	}
+
+	.sectionNewUser {
+		.newUserText {
+			margin-top: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 		}
 	}
 
@@ -82,22 +62,32 @@
 		background-color: rgb(253, 234, 234);
 		border-radius: 0.1rem;
 		padding: 0.2rem 0.5rem;
+		margin-bottom: 1rem;
 
 		svg {
 			height: 1.2rem;
 		}
 	}
+}
 
-	.emptyCartList {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+@media screen and (min-width: 700px) {
+	.section {
+		padding: 2rem $leftRightPadding;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.section {
+		flex-direction: row;
+		.sectionForm,
+		.sectionNewUser {
+			width: 100%;
+		}
 	}
 }
 
 @media screen and (min-width: 1500px) {
 	.section {
-		padding-left: $leftRightPaddingBigScreen;
-		padding-right: $leftRightPaddingBigScreen;
+		padding: 2rem $leftRightPaddingBigScreen;
 	}
 }

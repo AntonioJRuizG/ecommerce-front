@@ -1,0 +1,47 @@
+@import '../global.variables.scss';
+
+.section {
+	background-color: $primaryColor;
+	padding: 2rem $leftRightPaddingMobile;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2rem;
+	height: 100%;
+
+	.sectionTitle {
+		color: $secondaryColor;
+		white-space: nowrap;
+	}
+
+	.sectionUserInfo {
+		background-color: white;
+		padding: 1rem;
+		min-width: 200px;
+	}
+
+	.sectionUserInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.section {
+		padding: 2rem $leftRightPadding;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.section {
+		flex-direction: row;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.section {
+		padding: 2rem $leftRightPaddingBigScreen;
+	}
+}
