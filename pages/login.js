@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import PrimaryBtn from '@/components/PrimaryBtn/PrimaryBtn';
 import axios from 'axios';
 import ExclamationTriangle from '@/components/icons/ExclamationTriangle';
+import UserPage from './user';
 
 export default function LogInPage() {
 	const router = useRouter()
@@ -20,7 +21,7 @@ export default function LogInPage() {
 
 	const [customerData, setCustomerData] = useState(userInitialData);
 
-	const { addUser } = useContext(UserContext);
+	const { currentUser, addUser } = useContext(UserContext);
 
 	const handleChange = (event) => {
 		const element = event.target;
@@ -59,56 +60,61 @@ export default function LogInPage() {
 	const handleRegisterClick = () =>{
 		router.push('/register');
 	}
+	console.log(currentUser)
 
-	return (
-		<>
-			<Header></Header>
-			<section className={style.section}>
-				<div className={style.sectionForm}>
-					<h2 className={style.sectionTitle}>Customer login</h2>
-					<form className={style.registerForm} onSubmit={handleSubmit}>
-						<label>*Email address</label>
-						<input
-							type='email'
-							name='email'
-							value={customerData.email}
-							onChange={handleChange}
-							required
-						></input>
-						<label>*Password</label>
-						<input
-							type='password'
-							name='password'
-							value={customerData.password}
-							onChange={handleChange}
-							autoComplete='off'
-							required
-						></input>
-						{emailError ? (
-							<div className={style.errorTextBox}>
-								<ExclamationTriangle></ExclamationTriangle>{' '}
-								<p>The email or password is incorrect</p>
-							</div>
-						) : null}
-						<PrimaryBtn type='submit' btn='secondaryBtn'>
-							Sign in
-						</PrimaryBtn>
-					</form>
-				</div>
+	if (currentUser.name){
+		return (<UserPage userData={currentUser}></UserPage>);
+	}
 
-				<div className={style.sectionNewUser}>
-					<h2>New to e-Commerce?</h2>
-					<div className={style.newUserText}>
-						<p>
-							Sign up for a e-Commerce account to gain access to the lowest
-							priced products or save your wishlist.
-						</p>
-						<PrimaryBtn onClick={handleRegisterClick} btn='secondaryBtn'>
-							Register
-						</PrimaryBtn>
+		return (
+			<>
+				<Header></Header>
+				<section className={style.section}>
+					<div className={style.sectionForm}>
+						<h2 className={style.sectionTitle}>Customer login</h2>
+						<form className={style.registerForm} onSubmit={handleSubmit}>
+							<label>*Email address</label>
+							<input
+								type='email'
+								name='email'
+								value={customerData.email}
+								onChange={handleChange}
+								required
+							></input>
+							<label>*Password</label>
+							<input
+								type='password'
+								name='password'
+								value={customerData.password}
+								onChange={handleChange}
+								autoComplete='off'
+								required
+							></input>
+							{emailError ? (
+								<div className={style.errorTextBox}>
+									<ExclamationTriangle></ExclamationTriangle>{' '}
+									<p>The email or password is incorrect</p>
+								</div>
+							) : null}
+							<PrimaryBtn type='submit' btn='secondaryBtn'>
+								Sign in
+							</PrimaryBtn>
+						</form>
 					</div>
-				</div>
-			</section>
-		</>
-	);
+
+					<div className={style.sectionNewUser}>
+						<h2 className={style.sectionTitle}>New to e-Commerce?</h2>
+						<div className={style.newUserText}>
+							<p>
+								Sign up for a e-Commerce account to gain access to the lowest
+								priced products or save your wishlist.
+							</p>
+							<PrimaryBtn onClick={handleRegisterClick} btn='secondaryBtn'>
+								Register
+							</PrimaryBtn>
+						</div>
+					</div>
+				</section>
+			</>
+		);
 }

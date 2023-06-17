@@ -16,6 +16,11 @@
 		min-width: 200px;
 	}
 
+	.sectionTitle {
+		color: $secondaryColor;
+		white-space: nowrap;
+	}
+
 	.registerForm {
 		display: flex;
 		flex-direction: column;
