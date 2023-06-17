@@ -8,9 +8,10 @@ export default async function handle(req, res) {
 	if (method === 'PUT') {
 		const { email, wishlistProduct } = req.body;
 		const productDoc = await Customer.findOneAndUpdate(
-		{ email: email },
-		{ wishlist: wishlistProduct || null }
-		);
+			{ email: email },
+			{ $push: { wishlist: wishlistProduct } },
+			{ new: true }
+		).populate('wishlist');
 		res.json(productDoc);
 	}
 }
