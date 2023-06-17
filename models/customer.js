@@ -1,10 +1,11 @@
-const { Schema, models, model } = require("mongoose");
+const { Schema, models, model, default: mongoose } = require("mongoose");
 
 const customerSchema = new Schema(
 	{
 		name: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
+		wishlist: [{ type: mongoose.Types.ObjectId, ref: 'Product' }],
 	},
 	{
 		timestamps: true,
