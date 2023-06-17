@@ -4,14 +4,32 @@ import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import style from './ProductBox.module.scss'
 import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
+import HeartIcon from '../icons/Heart';
+import axios from 'axios';
+import { UserContext } from '@/context/UserContext';
+import { useRouter } from 'next/router';
 
-export default function ProductBox ({id, title, description, images, price}) {
-  const uri = '/product/'+id;
-	const {addProduct} = useContext(CartContext)
+export default function ProductBox({ id, title, description, images, price }) {
+	const route = useRouter()
+	const uri = '/product/' + id;
+	const { addProduct } = useContext(CartContext);
+	const { currentUser } = useContext(UserContext);
 	const handleAddToCartClick = () => {
-		addProduct(id)
-	}
-  return (
+		addProduct(id);
+	};
+
+	const handleAddToWishListClick = async (id) => {
+		if(!currentUser.name){
+			route.push('/login')
+			return
+		}
+		
+		await axios.put('/api/wishlist', { email: currentUser.email, wishlistProduct: id }).then((response) => {
+			console.log(response);
+		});
+	};
+
+	return (
 		<div className={style.container}>
 			<Link href={uri} className={style.imgContainer}>
 				<img
@@ -35,6 +53,13 @@ export default function ProductBox ({id, title, description, images, price}) {
 					>
 						Add to cart
 					</PrimaryBtn>
+					<button
+						onClick={() => {
+							handleAddToWishListClick(id);
+						}}
+					>
+						<HeartIcon solid={true}></HeartIcon>
+					</button>
 				</div>
 			</div>
 		</div>
