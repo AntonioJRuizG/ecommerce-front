@@ -27,6 +27,8 @@
 }
 
 .navSmallScreen {
+	display: flex;
+	flex-direction: row;
 	.navBtn {
 		background: transparent;
 		border: none;
