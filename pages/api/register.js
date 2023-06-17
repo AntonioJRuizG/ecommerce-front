@@ -17,6 +17,7 @@ export default async function handle(req, res) {
 				name: customerData.name,
 				password: customerData.password,
 				email: customerData.email,
+				wishlist: null
 			});
 			res.json(userData);
 		}
