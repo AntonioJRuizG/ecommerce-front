@@ -27,8 +27,6 @@
 }
 
 .navSmallScreen {
-	display: flex;
-	flex-direction: row;
 	.navBtn {
 		background: transparent;
 		border: none;
@@ -92,8 +90,8 @@
 	text-decoration: none;
 
 	svg {
-		width: 1.5rem;
-		height: 1.5rem;
+		width: 1.3rem;
+		height: 1.3rem;
 	}
 
 	span {

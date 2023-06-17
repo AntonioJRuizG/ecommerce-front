@@ -51,6 +51,7 @@ Use the app on any device; the responsive design adapts to every screen size.
 - Sass modules
 - Stripe
 - MongoDB
+- Firebase
 - Responsive
 
 ## Getting Started

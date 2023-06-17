@@ -85,7 +85,7 @@ export default function CartPage () {
 			<Header></Header>
 			<article className={style.cartContainer}>
 				<section className={style.cartBox}>
-					<h2 className={style.sectionTitle}>Cart</h2>
+					<h2>Cart</h2>
 					<div className={style.cartList}>
 						{products.length > 0 ? (
 							<Table
