@@ -5,13 +5,16 @@ import { useContext } from 'react';
 import { UserContext } from '@/context/UserContext';
 import { useRouter } from 'next/router';
 import PrimaryBtn from '@/components/PrimaryBtn/PrimaryBtn';
+import { CartContext } from '@/context/CartContext';
 
 export default function UserPage() {
 	const router = useRouter();
 	const { currentUser, removeUser } = useContext(UserContext);
+	const { clearCart } = useContext(CartContext);
 
   const handleLogoutClick = () => {
     removeUser();
+		clearCart();
 		router.push('/login');
 	};
 

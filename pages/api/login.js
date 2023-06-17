@@ -14,7 +14,7 @@ export default async function handle(req, res) {
 		}
 
 		if (customerExists.length !== 0) {
-			res.json(true);
+			res.json(customerExists);
 		}
 	}
 }

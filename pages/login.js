@@ -50,20 +50,20 @@ export default function LogInPage() {
 
 		if (response.data) {
 			setEmailError(false);
-			addUser(customerData);
+			addUser(response.data[0]);
+			router.push('/products');
 		}
 
-		router.push('/products');
+		
 	};
 
 
 	const handleRegisterClick = () =>{
 		router.push('/register');
 	}
-	console.log(currentUser)
 
 	if (currentUser.name){
-		return (<UserPage userData={currentUser}></UserPage>);
+		return (<UserPage></UserPage>);
 	}
 
 		return (
