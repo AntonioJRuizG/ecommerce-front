@@ -43,9 +43,12 @@ export default function UserPage() {
 				<div className={style.sectionUserWishlist}>
 					<h2 className={style.sectionTitle}>Your wishlist</h2>
 					<div className={style.sectionGrid}>
-						{currentUser.wishlist.map((product) => (
-							<ProductBox key={product.title} {...product}></ProductBox>
-						))}
+						{
+						currentUser.wishlist ? currentUser.wishlist.map((product) => (
+							<ProductBox key={product.title} {...product}></ProductBox> ))
+							: 
+							<div>Your wishlist is empty</div>
+						}
 					</div>
 				</div>
 			</section>
