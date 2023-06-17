@@ -2,6 +2,7 @@
 
 .table {
 	width: 100%;
+	min-width: 300px;
 	img {
 		max-width: 100px;
 		max-height: 100px;
@@ -9,11 +10,20 @@
 	th {
 		text-align: left;
 	}
-	td {
+
+	.td {
 		padding: 0.8rem 0.8rem 0.8rem 0;
+	}
+	.lineTd {
+		padding: 0.8rem 0 0.8rem 0;
+	}
+
+	.priceTd {
+		min-width: 100px;
 	}
 	.line {
 		width: 100%;
+		padding: 0;
 		border-top: 1px solid $secondaryColor;
 	}
 }

@@ -22,7 +22,7 @@ export default function Table({
 			</thead>
 			<tbody>
 				<tr>
-					<td colSpan='3'>
+					<td className={style.lineTd} colSpan='3'>
 						<div className={style.line}></div>
 					</td>
 				</tr>
@@ -45,7 +45,7 @@ export default function Table({
 								removeProduct={removeProduct}
 							></QuantitySelector>
 						</td>
-						<td>
+						<td className={style.priceTd}>
 							{product.price *
 								cartProducts.filter((id) => id === product.id).length}{' '}
 							€
@@ -59,7 +59,7 @@ export default function Table({
 				</tr>
 				<tr>
 					<td></td>
-					<td></td>
+					<td>Subtotal:</td>
 					<td>{totalPrice} €</td>
 				</tr>
 			</tbody>
