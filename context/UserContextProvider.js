@@ -16,6 +16,7 @@ export function UserContextProvider({ children }) {
 
 	const removeUser = () => {
 		setCurrentUser({});
+		localStorage.setItem('ecommerce-user', JSON.stringify({}));
 	};
 
 	const addUser = (customerData) => {
