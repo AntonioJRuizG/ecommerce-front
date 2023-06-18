@@ -4,10 +4,10 @@ import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import style from './ProductBox.module.scss'
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '@/context/CartContext';
-import HeartIcon from '../icons/Heart';
 import axios from 'axios';
 import { UserContext } from '@/context/UserContext';
 import { useRouter } from 'next/router';
+import AddTooFavoritesButton from '../AddToFavoritesButton/AddToFavoritesButton';
 
 export default function ProductBox({ id, title, images, price }) {
 	const route = useRouter()
@@ -16,7 +16,6 @@ export default function ProductBox({ id, title, images, price }) {
 	const { currentUser, updateUser } = useContext(UserContext);
 
 	const [inWishList, setInWishList] = useState(false)
-
 
 	useEffect(()=>{
 		const inWishList = currentUser?.wishlist?.some(
@@ -70,6 +69,13 @@ export default function ProductBox({ id, title, images, price }) {
 
 	return (
 		<div className={style.container}>
+			<div>
+				<AddTooFavoritesButton
+					id={id}
+					inWishList={inWishList}
+					onClick={handleAddToWishListClick}
+				></AddTooFavoritesButton>
+			</div>
 			<Link href={uri} className={style.imgContainer}>
 				<img
 					className={style.img}
@@ -92,13 +98,6 @@ export default function ProductBox({ id, title, images, price }) {
 					>
 						Add to cart
 					</PrimaryBtn>
-					<button
-						onClick={() => {
-							handleAddToWishListClick(id);
-						}}
-					>
-						<HeartIcon solid={inWishList}></HeartIcon>
-					</button>
 				</div>
 			</div>
 		</div>
