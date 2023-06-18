@@ -9,7 +9,7 @@ export default async function handle(req, res) {
 		const { customerData } = req.body;
 		const customerExists = await Customer.find({
 			email: customerData.email,
-		}).populate('wishlist');
+		}).populate({path: 'wishlist'}).exec();
 
     if (customerExists.length === 0 || customerData.password !== customerExists[0]?.password) {
 			res.json(false);
