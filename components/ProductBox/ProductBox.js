@@ -4,7 +4,7 @@ import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import style from './ProductBox.module.scss'
 import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
-import AddTooFavoritesButton from '../AddToFavoritesButton/AddToFavoritesButton';
+import AddToFavoritesButton from '../AddToFavoritesButton/AddToFavoritesButton';
 
 export default function ProductBox({ id, title, images, price }) {
 	const uri = '/product/' + id;
@@ -17,10 +17,10 @@ export default function ProductBox({ id, title, images, price }) {
 	return (
 		<div className={style.container}>
 			<div>
-				<AddTooFavoritesButton
+				<AddToFavoritesButton
 					id={id}
 					title={title}
-				></AddTooFavoritesButton>
+				></AddToFavoritesButton>
 			</div>
 			<Link href={uri} className={style.imgContainer}>
 				<img

@@ -6,7 +6,7 @@ import { UserContext } from "@/context/UserContext";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-export default function AddTooFavoritesButton({ id, title }) {
+export default function AddToFavoritesButton({ id, title }) {
   const route = useRouter()
   const { currentUser, updateUser } = useContext(UserContext);
   const [inWishList, setInWishList] = useState(false);
