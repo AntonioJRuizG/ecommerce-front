@@ -6,12 +6,24 @@ export default async function handle(req, res) {
 	await mongooseConnect();
 
 	if (method === 'PUT') {
-		const { email, wishlistProduct } = req.body;
-		const productDoc = await Customer.findOneAndUpdate(
-			{ email: email },
-			{ $push: { wishlist: wishlistProduct } },
-			{ new: true }
-		).populate('wishlist');
-		res.json(productDoc);
+		const { email, wishlistProduct, addToWishlist } = req.body;
+
+		if(addToWishlist){
+			const productDoc = await Customer.findOneAndUpdate(
+				{ email: email },
+				{ $push: { wishlist: wishlistProduct } },
+				{ new: true }
+			).populate('wishlist');
+			res.json(productDoc);
+		}
+
+		if (!addToWishlist) {
+			const productDoc = await Customer.findOneAndUpdate(
+				{ email: email },
+				{ $pull: { wishlist: wishlistProduct } },
+				{ new: true }
+			).populate('wishlist');
+			res.json(productDoc);
+		}
 	}
 }

@@ -23,12 +23,17 @@ export function UserContextProvider({ children }) {
 		setCurrentUser(customerData);
 	};
 
+	const updateUser = (updatedUser) =>{
+		setCurrentUser(updatedUser);
+	}
+
 	return (
 		<UserContext.Provider
 			value={{
 				currentUser,
 				addUser,
 				removeUser,
+				updateUser,
 			}}
 		>
 			{children}
