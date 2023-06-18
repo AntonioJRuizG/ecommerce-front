@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Header from "@/components/Header/Header";
 
 import style from '../styles/pagesStyle/cart.module.scss'
