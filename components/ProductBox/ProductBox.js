@@ -20,6 +20,7 @@ export default function ProductBox({ id, title, images, price }) {
 				<AddToFavoritesButton
 					id={id}
 					title={title}
+					form='rounded'
 				></AddToFavoritesButton>
 			</div>
 			<Link href={uri} className={style.imgContainer}>

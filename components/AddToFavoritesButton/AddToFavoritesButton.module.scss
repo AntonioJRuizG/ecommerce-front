@@ -1,9 +1,7 @@
 @import '../../styles/global.variables.scss';
 
-.favouriteButton {
-	z-index: 3;
+.rounded {
 	background-color: transparent;
-	color: transparent;
 	border: none;
 	position: absolute;
 	right: 0.2rem;
@@ -11,13 +9,42 @@
 	width: 2rem;
 	height: 2rem;
 	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	cursor: pointer;
+
 	svg {
 		width: 2rem;
 		color: $tertiaryPurpleColor;
 	}
 }
 
-.favouriteButton:hover {
+.rounded:hover {
 	background: radial-gradient(rgb(229, 207, 255), transparent);
+}
+
+.square {
+	background-color: transparent;
+	width: max-content;
+	border-color: transparent;
+	border-radius: 0.1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.3rem;
+	cursor: pointer;
+	color: rgb(134, 59, 255);
+	font-weight: bold;
+	font-size: 0.825rem;
+	white-space: nowrap;
+
+	svg {
+		width: 2rem;
+		color: $tertiaryPurpleColor;
+	}
+}
+
+.square:hover {
+	background: rgb(239, 224, 255);
 }

@@ -6,18 +6,22 @@ import { UserContext } from "@/context/UserContext";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-export default function AddToFavoritesButton({ id, title }) {
-  const route = useRouter()
-  const { currentUser, updateUser } = useContext(UserContext);
-  const [inWishList, setInWishList] = useState(false);
+export default function AddToFavoritesButton({ id, title, children, form, text }) {
+	const route = useRouter();
+	const { currentUser, updateUser } = useContext(UserContext);
+	const [inWishList, setInWishList] = useState(false);
 
-  useEffect(() => {
-    const inWishList = currentUser?.wishlist?.some((obj) => obj.title === title);
+  const buttonClass = `${style[form]}`;
 
-    if (inWishList) {
-      setInWishList(true);
-    }
-  }, []);
+	useEffect(() => {
+		const inWishList = currentUser?.wishlist?.some(
+			(obj) => obj.title === title
+		);
+
+		if (inWishList) {
+			setInWishList(true);
+		}
+	}, []);
 
 	const handleAddToWishListClick = async (id) => {
 		if (!currentUser.name) {
@@ -62,10 +66,11 @@ export default function AddToFavoritesButton({ id, title }) {
 
 	return (
 		<button
-			className={style.favouriteButton}
+			className={buttonClass}
 			onClick={() => handleAddToWishListClick(id)}
 		>
 			<HeartIcon solid={inWishList}></HeartIcon>
+			{text ? (inWishList ? 'Saved to Wishlist' : 'Save to Wishlist') : null}
 		</button>
 	);
 }
