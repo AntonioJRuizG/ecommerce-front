@@ -1,11 +1,12 @@
 import { Schema, models, model } from "mongoose";
+const Product = require('./product')
 
 const customerSchema = new Schema(
 	{
 		name: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
-		wishlist: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+		wishlist: [{ type: Schema.Types.ObjectId, ref: Product }],
 	},
 	{
 		timestamps: true,
