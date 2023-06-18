@@ -7,7 +7,9 @@ export default async function handle(req, res) {
 
 	if (method === 'POST') {
 		const { customerData } = req.body;
-		const customerExists = await Customer.find({ email: customerData.email });
+		const customerExists = await Customer.find({
+			email: customerData.email,
+		}).populate('wishlist');
 
     if (customerExists.length === 0 || customerData.password !== customerExists[0]?.password) {
 			res.json(false);

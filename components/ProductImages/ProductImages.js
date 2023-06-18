@@ -21,7 +21,6 @@ export default function ProductImages({ images, title }) {
 				{images.map((image) => (
 					<button
 						key={image}
-						active={image === activeImage}
 						onClick={() => setActiveImage(image)}
 					>
 						<img

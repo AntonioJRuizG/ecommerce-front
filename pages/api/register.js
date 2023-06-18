@@ -7,7 +7,9 @@ export default async function handle(req, res) {
 
   if (method === 'POST'){
  		const { customerData } = req.body;
-		const customerExists = await Customer.find({ email: customerData.email });
+		const customerExists = await Customer.find({
+			email: customerData.email,
+		});
 		if (customerExists.length !== 0){
 			res.json('customerExists')
 		}
@@ -17,6 +19,7 @@ export default async function handle(req, res) {
 				name: customerData.name,
 				password: customerData.password,
 				email: customerData.email,
+				wishlist: null
 			});
 			res.json(userData);
 		}

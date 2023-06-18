@@ -32,14 +32,14 @@ export function CartContextProvider({ children }) {
 	},[])
 
 	useEffect(()=>{
-		if(cartProducts.length>0){
+		if(cartProducts.length > 0){
 			localStorage.setItem('cart', JSON.stringify(cartProducts));
 		}
 	},[cartProducts])
 
 	const clearCart = () =>{
 		setCartProducts([]);
-		localStorage.setItem('cart', JSON.stringify({}));
+		localStorage.setItem('cart', JSON.stringify([]));
 	}
 
 	return (

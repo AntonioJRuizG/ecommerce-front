@@ -54,8 +54,8 @@ export default function LogInPage() {
 				return
 			}
 
-			if (response){
-				addUser(customerData);
+			if (response.data){
+				addUser(response.data[0]);
 			}
 
 			router.push('/products');

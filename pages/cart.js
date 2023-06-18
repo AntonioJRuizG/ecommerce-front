@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Header from "@/components/Header/Header";
 
 import style from '../styles/pagesStyle/cart.module.scss'
@@ -7,7 +8,6 @@ import axios from "axios";
 import Table from "@/components/Table/Table";
 import PrimaryBtn from "@/components/PrimaryBtn/PrimaryBtn";
 import ExclamationTriangle from "@/components/icons/ExclamationTriangle";
-import Link from "next/link";
 
 export default function CartPage () {
   const { cartProducts, addProduct, removeProduct, clearCart } =

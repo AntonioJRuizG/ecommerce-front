@@ -1,15 +1,18 @@
 import mongoose, {Schema, model, models} from 'mongoose';
 
-const productSchema = new Schema({
-	title: {type: String, required: true},
-	description: String,
-	price: {type: Number, required: true},
-	category: {type: mongoose.Types.ObjectId, ref: 'Category'},
-	images: [{type: String}],
-	properties: {type: Object},
-},{
-	timestamps: true
-});
+const productSchema = new Schema(
+	{
+		title: { type: String, required: true },
+		description: String,
+		price: { type: Number, required: true },
+		category: { type: mongoose.Types.ObjectId, ref: 'Category' },
+		images: [{ type: String }],
+		properties: { type: Object },
+	},
+	{
+		timestamps: true,
+	}
+);
 
 productSchema.set('toJSON', {
 	transform(_document, returnedObject) {
