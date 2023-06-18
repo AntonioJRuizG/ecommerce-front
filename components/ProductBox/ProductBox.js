@@ -42,7 +42,6 @@ export default function ProductBox({ id, title, images, price }) {
 			await axios
 				.put('/api/wishlist', { email: currentUser.email, wishlistProduct: id, addToWishlist: true })
 				.then((response) => {
-					console.log(response.data)
 					setInWishList(true);
 					const updatedUser = { ...currentUser, wishlist: response.data.wishlist };
 					updateUser(updatedUser);
@@ -58,7 +57,6 @@ export default function ProductBox({ id, title, images, price }) {
 				})
 				.then((response) => {
 					setInWishList(false);
-					console.log(response.data);
 					const updatedUser = {
 						...currentUser,
 						wishlist: response.data.wishlist,
