@@ -50,7 +50,10 @@ export default function UserPage() {
 						</div>
 					) : (
 						<div className={style.emptyWishList}>
-							<p>Your wishlist is empty.</p>
+							<p>
+								Your wishlist is empty. Add some items to your wishlist to save
+								them for later.
+							</p>
 							<PrimaryBtn href={'/products'} btn='secondaryBtn'>
 								Keep shopping
 							</PrimaryBtn>

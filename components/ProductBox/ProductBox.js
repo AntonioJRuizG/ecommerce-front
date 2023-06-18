@@ -2,69 +2,16 @@
 import Link from 'next/link';
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import style from './ProductBox.module.scss'
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
-import axios from 'axios';
-import { UserContext } from '@/context/UserContext';
-import { useRouter } from 'next/router';
 import AddTooFavoritesButton from '../AddToFavoritesButton/AddToFavoritesButton';
 
 export default function ProductBox({ id, title, images, price }) {
-	const route = useRouter()
 	const uri = '/product/' + id;
 	const { addProduct  } = useContext(CartContext);
-	const { currentUser, updateUser } = useContext(UserContext);
-
-	const [inWishList, setInWishList] = useState(false)
-
-	useEffect(()=>{
-		const inWishList = currentUser?.wishlist?.some(
-			(obj) => obj.title === title
-		);
-
-		if(inWishList){
-			setInWishList(true)
-		}
-	},[])
 
 	const handleAddToCartClick = () => {
 		addProduct(id);
-	};
-
-	const handleAddToWishListClick = async (id) => {
-		if(!currentUser.name){
-			route.push('/login')
-			return
-		}
-
-		if (!inWishList){
-			await axios
-				.put('/api/wishlist', { email: currentUser.email, wishlistProduct: id, addToWishlist: true })
-				.then((response) => {
-					setInWishList(true);
-					const updatedUser = { ...currentUser, wishlist: response.data.wishlist };
-					updateUser(updatedUser);
-				});
-		}
-
-		if (inWishList) {
-			await axios
-				.put('/api/wishlist', {
-					email: currentUser.email,
-					wishlistProduct: id,
-					addToWishlist: false,
-				})
-				.then((response) => {
-					setInWishList(false);
-					const updatedUser = {
-						...currentUser,
-						wishlist: response.data.wishlist,
-					};
-					updateUser(updatedUser);
-
-				});
-		}
-			
 	};
 
 	return (
@@ -72,8 +19,7 @@ export default function ProductBox({ id, title, images, price }) {
 			<div>
 				<AddTooFavoritesButton
 					id={id}
-					inWishList={inWishList}
-					onClick={handleAddToWishListClick}
+					title={title}
 				></AddTooFavoritesButton>
 			</div>
 			<Link href={uri} className={style.imgContainer}>
